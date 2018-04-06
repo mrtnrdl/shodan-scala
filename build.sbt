@@ -4,4 +4,25 @@ version := "0.1"
 
 scalaVersion := "2.12.4"
 
-libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.4" % "test"
+val circeVersion = "0.9.1"
+val akkaHttpVersion = "10.0.9"
+val akkaVersion = "10.0.9"
+val akkaHttpCirceVersion = "1.17.0"
+val scalaTestVersion = "3.0.4"
+
+lazy val circe = Seq(
+      "io.circe" %% "circe-core",
+      "io.circe" %% "circe-generic",
+      "io.circe" %% "circe-parser"
+).map(_ % circeVersion)
+
+lazy val akkaHttp =           "com.typesafe.akka"          %% "akka-http"             % akkaHttpVersion
+lazy val akkaHttpTestkit =    "com.typesafe.akka"          %% "akka-http-testkit"     % akkaHttpVersion
+lazy val akkaHttpCirce =      "de.heikoseeberger"          %% "akka-http-circe"       % akkaHttpCirceVersion
+lazy val scalaTest =          "org.scalatest"              %% "scalatest"             % scalaTestVersion % "test"
+libraryDependencies ++= Seq(
+      scalaTest,
+      circe,
+      akkaHttp,
+      akkaHttpTestkit,
+      akkaHttpCirce)
