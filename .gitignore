@@ -4,3 +4,4 @@
 project/target/*
 target/*
 /resources/shodan-api-key.properties
+/project/project/
